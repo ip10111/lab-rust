@@ -6,7 +6,7 @@ fn main() {
     let multi = multiply(a, b);
     
     println!("Sum of {} plus {} is {}", a, b, sum);
-    println!("{} multiply {} is {}", a, b, multi);
+    println!("{a} multiply {b} is {multi}");
 }
 
 fn sum(x:i32, y:i32) -> i32 {
