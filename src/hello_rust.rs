@@ -1,5 +1,7 @@
-// Print "Hello, rust!".
+// Print text.
 
 fn main() {
-    println!("Hello, rust!");
+    let greeting = "Hello, Rust!";
+
+    println!("{}", greeting);
 }
