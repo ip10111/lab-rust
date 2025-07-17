@@ -1,0 +1,38 @@
+# Use the official Rust image as the base for building
+FROM composer:latest AS builder
+
+
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Cargo files and fetch dependencies to leverage Docker layer caching
+COPY Cargo.toml Cargo.lock ./
+RUN cargo fetch
+
+# Copy the rest of your project files
+COPY . .
+
+# Build the application in release mode
+RUN cargo build --release
+
+# Use a smaller base image for the runtime (e.g., Debian Slim or Alpine)
+FROM debian:bookworm-slim
+
+# Install necessary dependencies for running the application
+RUN apt-get update && apt-get install -y libssl-dev ca-certificates && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the compiled binary from the builder stage
+COPY --from=builder /app/target/release/hello_world_website .
+
+# Copy templates and other resources if needed
+COPY templates ./templates
+
+# Expose the port your application will run on
+EXPOSE 8080
+
+# Set the default command to run your application
+CMD ["./hello_world_website"]

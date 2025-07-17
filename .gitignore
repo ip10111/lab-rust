@@ -1,0 +1,26 @@
+# 🦀 Rust build artifacts (shared by all workspace members)
+**/target/
+**/*.rs.bk
+**/*.log
+**/*.tmp
+
+# 📦 Cargo lockfiles (optional for libraries)
+**/Cargo.lock
+
+# 🧪 Dev tooling & hot-reload
+.cargo-watch/
+.env
+**/.env
+**/.cargo-watch/
+
+# 🧠 IDE/editor config folders
+.vscode/
+.idea/
+**/*.iml
+
+# 💻 OS/system artifacts
+.DS_Store
+Thumbs.db
+
+# 🐳 Docker overrides and local config
+docker-compose.override.yml

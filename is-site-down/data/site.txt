@@ -1,0 +1,4 @@
+www.google.com
+example.com
+http://rust-lang.org
+https://github.com

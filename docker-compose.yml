@@ -1,0 +1,10 @@
+services:
+  lab-rust:
+    image: rust:latest
+    container_name: lab-rust
+    volumes:
+      - .:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    command: bash
+    tty: true
+    stdin_open: true
