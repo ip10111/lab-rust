@@ -45,6 +45,3 @@ rustc calculator.rs
 |-------------|-------------------------|---------------------|
 | Build       | `cargo build --release` | `target/release/`   |
 | Run (debug) | `cargo run`             | `target/debug/`     |
-```
-
-
